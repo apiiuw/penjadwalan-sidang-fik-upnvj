@@ -1,0 +1,45 @@
+@extends('admin.layouts.main')
+@section('container')
+
+<div class="w-full h-full flex flex-col justify-center">
+    <img class="w-full h-screen" src="{{ asset('img/user/Carousel-User.png') }}" alt="">
+
+    <div class="space-y-10 my-20">
+
+        <!-- Baris 1 -->
+        <div class="flex justify-center gap-x-10">
+            {{-- Card 1 --}}
+            <a href="/admin/daftar-data-dokumen-mahasiswa" class=" w-96 bg-gradient-to-b from-black/90 to-blue-500 border-blue-700 rounded-lg shadow-sm transition duration-300 ease-in-out hover:scale-105">
+                <img class="rounded-t-lg" src="{{ asset('img/user/card-3-alur-pengajuan-judul-sidang.png') }}" alt="" />
+                <div class="p-5">
+                    <h5 class="text-xl text-center font-bold tracking-tight text-white">Daftar Data Dokumen Mahasiswa</h5>
+                </div>
+            </a>
+
+            {{-- Card 2 --}}
+            <a href="/admin/hasil-dan-nilai-sidang-mahasiswa" class=" w-96 bg-gradient-to-b from-black/90 to-blue-500 border-blue-700 rounded-lg shadow-sm transition duration-300 ease-in-out hover:scale-105">
+                <img class="rounded-t-lg" src="{{ asset('img/user/card-4-pendaftaran-sidang.png') }}" alt="" />
+                <div class="p-5">
+                    <h5 class="text-xl text-center font-bold tracking-tight text-white">Hasil dan Nilai Sidang Mahasiswa</h5>
+                </div>
+            </a>
+        </div>
+
+        <!-- Baris 2 -->
+        <div class="flex justify-center gap-x-10">
+            {{-- Card 3 --}}
+            <a href="/admin/kalender-jadwal-sidang" class=" w-96 bg-gradient-to-b from-black/90 to-blue-500 border-blue-700 rounded-lg shadow-sm transition duration-300 ease-in-out hover:scale-105">
+                <img class="rounded-t-lg" src="{{ asset('img/user/card-1-syarat-dan-ketentuan-sidang.png') }}" alt="" />
+                <div class="p-5">
+                    <h5 class="text-xl text-center font-bold tracking-tight text-white">Kalender Jadwal Sidang</h5>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+
+
+</div>
+
+@endsection
