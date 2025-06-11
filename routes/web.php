@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\UbahKalenderController;
+use App\Http\Controllers\UbahInformasiSidangController;
 use App\Http\Controllers\MahasiswaPendaftaranSidangController;
 use App\Http\Controllers\AdminDaftarSidangMahasiswaController;
 use App\Http\Controllers\AdminHasilNilaiSidangController;
@@ -36,8 +36,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/ketentuan-dan-syarat-sidang', function () {
             return view('user.pages.layanan.ketentuan-dan-syarat');
         });
-        Route::get('/kalender-jadwal-sidang', function () {
-            return view('user.pages.layanan.kalender-jadwal-sidang');
+        Route::get('/informasi-sidang', function () {
+            return view('user.pages.layanan.informasi-sidang');
         });
         Route::get('/alur-pengajuan-judul-sidang', function () {
             return view('user.pages.layanan.alur-pengajuan-judul-sidang');
@@ -73,10 +73,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/hasil-dan-nilai-sidang-mahasiswa/input-nilai/{id}', [AdminHasilNilaiSidangController::class, 'formInput'])->name('admin.input-nilai');
         Route::post('/admin/hasil-dan-nilai-sidang-mahasiswa/input-nilai/simpan/{id}', [AdminHasilNilaiSidangController::class, 'store'])->name('nilai-sidang.store');
 
-        Route::get('/admin/kalender-jadwal-sidang', function () {
-            return view('admin.pages.layanan.kalender-jadwal-sidang.index');
+        Route::get('/admin/informasi-sidang', function () {
+            return view('admin.pages.layanan.informasi-sidang.index');
         });
-        Route::post('/admin/kalender-jadwal-sidang/ubah-kalender', [UbahKalenderController::class, 'upload'])->name('ubah.kalender');
+        Route::post('/admin/informasi-sidang/ubah-informasi-sidang', [UbahInformasiSidangController::class, 'upload'])->name('ubah.informasi');
     });
 
     // Koor-Prodi
