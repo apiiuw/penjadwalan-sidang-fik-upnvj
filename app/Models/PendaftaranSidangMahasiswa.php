@@ -12,6 +12,6 @@ class PendaftaranSidangMahasiswa extends Model
     protected $table = 'pendaftaran_sidang_mahasiswa';
 
     protected $fillable = [
-        'nim', 'nama_lengkap', 'tanggal_daftar', // sesuaikan dengan kolom sebenarnya
+        'nim_nip', 'nama_lengkap', 'tanggal_daftar', 'dosen_pembimbing', // sesuaikan dengan kolom sebenarnya
     ];
 }

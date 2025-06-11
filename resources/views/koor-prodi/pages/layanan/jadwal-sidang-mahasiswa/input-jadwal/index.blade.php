@@ -48,8 +48,17 @@
                         Dosen Pembimbing
                     </div>
                     <div class="col-span-2 grid grid-cols-2 gap-4">
-                        <input type="text" name="dosen_pembimbing_1" placeholder="{{ $mahasiswa->dosen_pembimbing1 }}" class="w-full border px-3 py-2 rounded placeholder:text-gray-400 text-center" />
-                        <input type="text" name="dosen_pembimbing_2" placeholder="{{ $mahasiswa->dosen_pembimbing2 }}" class="w-full border px-3 py-2 rounded placeholder:text-gray-400 text-center" />
+                        <input type="text" 
+                            name="dosen_pembimbing_1" 
+                            value="{{ $pendaftaran->dosen_pembimbing ?? '-' }}" 
+                            readonly 
+                            class="w-full border px-3 py-2 rounded bg-gray-100 text-center text-gray-500" />
+
+                        <input type="text" 
+                            name="dosen_pembimbing_2" 
+                            value="{{ $pendaftaran->dosen_pembimbing ?? '-' }}" 
+                            readonly 
+                            class="w-full border px-3 py-2 rounded bg-gray-100 text-center text-gray-500" />
                     </div>
                 </div>
 
@@ -57,8 +66,46 @@
                 <div class="grid grid-cols-3 gap-4 items-center">
                     <div class="bg-red-100 px-4 py-2 font-semibold text-gray-800 rounded">Dosen Penguji</div>
                     <div class="col-span-2 grid grid-cols-2 gap-4">
-                        <input type="text" name="dosen_penguji_1" placeholder="{{ $mahasiswa->dosen_penguji1 }}" class="w-full border px-3 py-2 rounded placeholder:text-gray-400 text-center" />
-                        <input type="text" name="dosen_penguji_2" placeholder="{{ $mahasiswa->dosen_penguji2 }}" class="w-full border px-3 py-2 rounded placeholder:text-gray-400 text-center" />
+                        @php
+                            $dosenPengujiOptions = [
+                                'S1 Sistem Informasi' => [
+                                    'Rudhy Ho Purabaya, SE., MMSI.',
+                                    'Artika Arista, S. Kom, MMSI',
+                                    'Novi Trisman Hadi, S.Pd., M.Kom.',
+                                ],
+                                'D3 Sistem Informasi' => [
+                                    'Tri Rahayu S.Kom., MM.',
+                                    'Bobby Suryo Prakoso S.T., M.Kom',
+                                    'Helena Nurramdhani Irmanda, S.Pd, M.Kom​',
+                                ],
+                                'S1 Informatika' => [
+                                    'Dr. Widya Cholil, M.I.T',
+                                    'Radinal Setyadinsa, S.Pd., M.T.I',
+                                    'Jayanta, S.Kom., M.Si',
+                                ],
+                                'S1 Sains Data' => [
+                                    'Muhammad Adrezo, S.Kom.,M.Sc',
+                                    'Muhammad Panji Muslim, S.Pd., M.Kom.',
+                                    'Musthofa Galih Pradana, M.Kom.',
+                                ],
+                            ];
+
+                            $options = $dosenPengujiOptions[$mahasiswa->program_studi] ?? [];
+                        @endphp
+
+                        <select name="dosen_penguji_1" class="w-full border px-3 py-2 rounded text-center text-gray-700">
+                            <option value="" disabled selected>Pilih Dosen Penguji 1</option>
+                            @foreach ($options as $dosen)
+                                <option value="{{ $dosen }}" {{ $mahasiswa->dosen_penguji1 === $dosen ? 'selected' : '' }}>{{ $dosen }}</option>
+                            @endforeach
+                        </select>
+
+                        <select name="dosen_penguji_2" class="w-full border px-3 py-2 rounded text-center text-gray-700 mt-2">
+                            <option value="" disabled selected>Pilih Dosen Penguji 2</option>
+                            @foreach ($options as $dosen)
+                                <option value="{{ $dosen }}" {{ $mahasiswa->dosen_penguji2 === $dosen ? 'selected' : '' }}>{{ $dosen }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
 

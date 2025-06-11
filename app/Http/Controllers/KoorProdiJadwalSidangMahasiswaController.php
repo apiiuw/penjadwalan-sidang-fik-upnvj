@@ -7,6 +7,7 @@ use App\Models\JadwalSidangMahasiswa;
 use App\Models\NilaiSidang;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\JadwalSidangDikirim;
+use App\Models\PendaftaranSidangMahasiswa;
 
 class KoorProdiJadwalSidangMahasiswaController extends Controller
 {
@@ -29,8 +30,11 @@ class KoorProdiJadwalSidangMahasiswaController extends Controller
         // Ambil data berdasarkan ID
         $mahasiswa = JadwalSidangMahasiswa::findOrFail($id);
 
+        // Ambil data pendaftaran sidang berdasarkan NIM/NIP
+        $pendaftaran = PendaftaranSidangMahasiswa::where('nim_nip', $mahasiswa->nim_nip)->first();
+
         // Tampilkan view form input jadwal sidang
-        return view('koor-prodi.pages.layanan.jadwal-sidang-mahasiswa.input-jadwal.index', compact('mahasiswa'));
+        return view('koor-prodi.pages.layanan.jadwal-sidang-mahasiswa.input-jadwal.index', compact('mahasiswa', 'pendaftaran'));
     }
 
     public function kirim(Request $request, $id)

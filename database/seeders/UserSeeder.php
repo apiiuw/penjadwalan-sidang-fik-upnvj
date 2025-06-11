@@ -12,7 +12,7 @@ class UserSeeder extends Seeder
 {
     public function run(): void
     {
-        DB::table('users')->insert([
+        $users = [
             [
                 'role' => 'Admin',
                 'name' => 'Admin UPNVJ',
@@ -61,6 +61,25 @@ class UserSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
-        ]);
+            [
+                'role' => 'Dosen Pembimbing',
+                'name' => 'Artika Arista, S. Kom, MMSI',
+                'nim_nip' => '1234567890',
+                'email' => 'artika.arista@dosen.upnvj.ac.id',
+                'program_studi' => '-',
+                'email_verified_at' => Carbon::now(),
+                'password' => Hash::make('pembimbing123'),
+                'remember_token' => Str::random(10),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+        ];
+
+        foreach ($users as $user) {
+            DB::table('users')->updateOrInsert(
+                ['email' => $user['email']], // condition untuk mencari user berdasarkan email
+                $user // data yang akan diinsert atau diupdate
+            );
+        }
     }
 }

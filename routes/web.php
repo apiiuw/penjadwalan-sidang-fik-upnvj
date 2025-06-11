@@ -108,6 +108,15 @@ Route::middleware('auth')->group(function () {
 
     });
 
+    Route::middleware('role:Dosen Pembimbing')->group(function () {
+        Route::get('/pembimbing', function () {
+            return view('pembimbing.pages.beranda.index');
+        });
+        Route::get('/pembimbing/nilai-mahasiswa', function () {
+            return view('pembimbing.pages.layanan.nilai-mahasiswa.index');
+        });
+    });
+
 Route::get('/debug-user', function () {
     return auth()->user();
 });

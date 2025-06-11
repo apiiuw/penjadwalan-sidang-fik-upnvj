@@ -25,6 +25,10 @@ class AuthController extends Controller
                 return redirect('/admin');
             } elseif ($role === 'Koordinator Program Studi') {
                 return redirect('/koor-prodi');
+            } elseif ($role === 'Dosen Pembimbing') {
+                return redirect('/pembimbing');
+            } elseif ($role === 'Dosen Penguji') {
+                return redirect('/penguji');
             } elseif ($role === 'Mahasiswa') {
                 return redirect('/');
             } else {
