@@ -49,7 +49,9 @@
                                     </th>
                                     <td class="px-3 py-4 text-center">{{ $mahasiswa->nim_nip }}</td>
                                     <td class="px-6 py-4">{{ $mahasiswa->name }}</td>
-                                    <td class="px-3 py-4 text-center">{{ \Carbon\Carbon::parse($mahasiswa->tanggal_daftar)->format('d/m/Y') }}</td>
+                                    <td class="px-3 py-4 text-center">
+                                        {{ \Carbon\Carbon::createFromFormat('d/m/Y', $mahasiswa->tanggal_daftar)->format('d/m/Y') }}
+                                    </td>
                                     <td class="px-6 py-4 text-right">
                                         <a href="{{ route('admin.detail-berkas-mahasiswa', ['id' => $mahasiswa->id]) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                                             Lihat Berkas

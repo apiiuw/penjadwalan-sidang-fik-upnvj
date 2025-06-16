@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Pembimbing | FIK - UPNVJ</title>
+    <title>Penguji | FIK - UPNVJ</title>
     <link rel="icon" href="{{ asset('img/logo/Logo-FIK.png') }}">
 
     {{-- CDN --}}

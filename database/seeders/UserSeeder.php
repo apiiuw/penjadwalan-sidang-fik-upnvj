@@ -73,6 +73,18 @@ class UserSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
+            [
+                'role' => 'Dosen Penguji',
+                'name' => 'Tri Rahayu S.Kom., MM.',
+                'nim_nip' => '1234567890',
+                'email' => 'tri.rahayu@dosen.upnvj.ac.id',
+                'program_studi' => '-',
+                'email_verified_at' => Carbon::now(),
+                'password' => Hash::make('penguji123'),
+                'remember_token' => Str::random(10),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
         ];
 
         foreach ($users as $user) {

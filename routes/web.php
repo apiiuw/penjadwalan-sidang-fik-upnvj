@@ -7,6 +7,8 @@ use App\Http\Controllers\MahasiswaPendaftaranSidangController;
 use App\Http\Controllers\AdminDaftarSidangMahasiswaController;
 use App\Http\Controllers\AdminHasilNilaiSidangController;
 use App\Http\Controllers\KoorProdiJadwalSidangMahasiswaController;
+use App\Http\Controllers\PembimbingNilaiSidangController;
+use App\Http\Controllers\PengujiNilaiSidangController;
 use App\Http\Controllers\MahasiswaStatusPendaftaranController;
 use App\Http\Controllers\MahasiswaHasilSidangController;
 
@@ -64,14 +66,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/daftar-data-dokumen-mahasiswa/{id}', [AdminDaftarSidangMahasiswaController::class, 'show'])->name('admin.detail-berkas-mahasiswa');
         Route::post('/admin/daftar-data-dokumen-mahasiswa/{id}/kirim-ke-koor', [AdminDaftarSidangMahasiswaController::class, 'store'])->name('kirim.ke.koor');
 
-        Route::get('/admin/hasil-dan-nilai-sidang-mahasiswa', [AdminHasilNilaiSidangController::class, 'index'])->name('admin.hasil-nilai-sidang');
+        // Route::get('/admin/hasil-dan-nilai-sidang-mahasiswa', [AdminHasilNilaiSidangController::class, 'index'])->name('admin.hasil-nilai-sidang');
 
-        Route::get('/admin/hasil-dan-nilai-sidang-mahasiswa/input-nilai', function () {
-            return view('admin.pages.layanan.hasil-dan-nilai-sidang-mahasiswa.input-nilai.index');
-        });
+        // Route::get('/admin/hasil-dan-nilai-sidang-mahasiswa/input-nilai', function () {
+        //     return view('admin.pages.layanan.hasil-dan-nilai-sidang-mahasiswa.input-nilai.index');
+        // });
 
-        Route::get('/admin/hasil-dan-nilai-sidang-mahasiswa/input-nilai/{id}', [AdminHasilNilaiSidangController::class, 'formInput'])->name('admin.input-nilai');
-        Route::post('/admin/hasil-dan-nilai-sidang-mahasiswa/input-nilai/simpan/{id}', [AdminHasilNilaiSidangController::class, 'store'])->name('nilai-sidang.store');
+        // Route::get('/admin/hasil-dan-nilai-sidang-mahasiswa/input-nilai/{id}', [AdminHasilNilaiSidangController::class, 'formInput'])->name('admin.input-nilai');
+        // Route::post('/admin/hasil-dan-nilai-sidang-mahasiswa/input-nilai/simpan/{id}', [AdminHasilNilaiSidangController::class, 'store'])->name('nilai-sidang.store');
 
         Route::get('/admin/informasi-sidang', function () {
             return view('admin.pages.layanan.informasi-sidang.index');
@@ -108,13 +110,28 @@ Route::middleware('auth')->group(function () {
 
     });
 
+    // Pembimbing
+    Route::middleware('role:Dosen Penguji')->group(function () {
+        Route::get('/penguji', function () {
+            return view('penguji.pages.beranda.index');
+        });
+        Route::get('/penguji/nilai-sidang-mahasiswa', [PengujiNilaiSidangController::class, 'index'])->name('penguji.nilai-sidang-mahasiswa');
+
+        Route::get('/penguji/nilai-sidang-mahasiswa/input-nilai/{id}', [PengujiNilaiSidangController::class, 'formInput'])->name('penguji.input-nilai');
+        Route::post('/penguji/nilai-sidang-mahasiswa/input-nilai/simpan/{id}', [PengujiNilaiSidangController::class, 'store'])->name('penguji.nilai-sidang.store');
+
+    });
+
     Route::middleware('role:Dosen Pembimbing')->group(function () {
         Route::get('/pembimbing', function () {
             return view('pembimbing.pages.beranda.index');
         });
-        Route::get('/pembimbing/nilai-mahasiswa', function () {
-            return view('pembimbing.pages.layanan.nilai-mahasiswa.index');
-        });
+        Route::get('/pembimbing/nilai-sidang-mahasiswa', [PembimbingNilaiSidangController::class, 'index'])->name('pembimbing.nilai-sidang-mahasiswa');
+
+        Route::get('/pembimbing/nilai-sidang-mahasiswa/input-nilai/{id}', [PembimbingNilaiSidangController::class, 'formInput'])->name('pembimbing.input-nilai');
+
+        Route::post('/pembimbing/nilai-sidang-mahasiswa/input-nilai/simpan/{id}', [PembimbingNilaiSidangController::class, 'store'])->name('pembimbing.nilai-sidang.store');
+
     });
 
 Route::get('/debug-user', function () {

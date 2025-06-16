@@ -11,7 +11,7 @@
 <div class="px-4 sm:px-6 lg:px-8">
     <div class="max-w-4xl mx-auto">
 
-        <form class="max-w-4xl mx-auto" method="GET" action="{{ route('admin.hasil-nilai-sidang') }}">
+        <form class="max-w-4xl mx-auto" method="GET" action="{{ route('pembimbing.nilai-sidang-mahasiswa') }}">
             <label for="default-search" class="mb-2 text-sm font-medium text-black sr-only">Search</label>
             <div class="relative">
                 <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none justify-center">
@@ -50,7 +50,7 @@
                             <td class="px-6 py-4">{{ $sidang->name }}</td>
                             <td class="px-3 py-4 text-center">{{ \Carbon\Carbon::parse($sidang->tanggal_pelaksanaan)->format('d/m/Y') }}</td>
                             <td class="px-6 py-4 text-right">
-                                <a href="{{ url('/admin/hasil-dan-nilai-sidang-mahasiswa/input-nilai/'.$sidang->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Input Nilai Sidang</a>
+                                <a href="{{ url('/pembimbing/nilai-sidang-mahasiswa/input-nilai/'.$sidang->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Input Nilai Sidang</a>
                             </td>
                         </tr>
                     @empty

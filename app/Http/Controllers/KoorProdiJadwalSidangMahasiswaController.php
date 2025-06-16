@@ -72,6 +72,11 @@ class KoorProdiJadwalSidangMahasiswaController extends Controller
                 'nim_nip' => $mahasiswa->nim_nip,
                 'email' => $mahasiswa->email,
                 'program_studi' => $mahasiswa->program_studi,
+                'tanggal_pelaksanaan' => $request->tanggal_pelaksanaan,
+                'pembimbing_1' => $request->dosen_pembimbing_1,
+                'pembimbing_2' => $request->dosen_pembimbing_2,
+                'penguji_1' => $request->dosen_penguji_1,
+                'penguji_2' => $request->dosen_penguji_2,
             ]);
         }
 

@@ -100,7 +100,7 @@
                             @endforeach
                         </select>
 
-                        <select name="dosen_penguji_2" class="w-full border px-3 py-2 rounded text-center text-gray-700 mt-2">
+                        <select name="dosen_penguji_2" class="w-full border px-3 py-2 rounded text-center text-gray-700">
                             <option value="" disabled selected>Pilih Dosen Penguji 2</option>
                             @foreach ($options as $dosen)
                                 <option value="{{ $dosen }}" {{ $mahasiswa->dosen_penguji2 === $dosen ? 'selected' : '' }}>{{ $dosen }}</option>

@@ -76,7 +76,21 @@
 
                 <div class="bg-gray-200 p-4 shadow border min-h-[120px] flex flex-col justify-between">
                     <label class="block font-bold mb-1">Dosen Pembimbing</label>
-                    <input type="text" name="dosen_pembimbing" placeholder="Ketikkan Dosen Pembimbing" class="w-full border px-2 py-1" required />
+                    <select name="dosen_pembimbing" required class="w-full border px-2 py-1 bg-gray-100">
+                        <option value="" disabled selected>-- Pilih Dosen Pembimbing --</option>
+                        <option value="Dr. Widya Cholil, M.I.T">Dr. Widya Cholil, M.I.T</option>
+                        <option value="Radinal Setyadinsa, S.Pd., M.T.I">Radinal Setyadinsa, S.Pd., M.T.I</option>
+                        <option value="Jayanta, S.Kom., M.Si">Jayanta, S.Kom., M.Si</option>
+                        <option value="Muhammad Adrezo, S.Kom.,M.Sc">Muhammad Adrezo, S.Kom.,M.Sc</option>
+                        <option value="Muhammad Panji Muslim, S.Pd., M.Kom.">Muhammad Panji Muslim, S.Pd., M.Kom.</option>
+                        <option value="Musthofa Galih Pradana, M.Kom.">Musthofa Galih Pradana, M.Kom.</option>
+                        <option value="Rudhy Ho Purabaya, SE., MMSI.">Rudhy Ho Purabaya, SE., MMSI.</option>
+                        <option value="Artika Arista, S. Kom, MMSI">Artika Arista, S. Kom, MMSI</option>
+                        <option value="Novi Trisman Hadi, S.Pd., M.Kom.">Novi Trisman Hadi, S.Pd., M.Kom.</option>
+                        <option value="Tri Rahayu S.Kom., MM.">Tri Rahayu S.Kom., MM.</option>
+                        <option value="Bobby Suryo Prakoso S.T., M.Kom">Bobby Suryo Prakoso S.T., M.Kom</option>
+                        <option value="Helena Nurramdhani Irmanda, S.Pd, M.Kom">Helena Nurramdhani Irmanda, S.Pd, M.Kom</option>
+                    </select>
                 </div>
 
                 <div class="bg-gray-200 p-4 shadow border min-h-[120px] flex flex-col justify-between">

@@ -38,7 +38,7 @@
                                 <th scope="col" class="px-1 py-3 text-center">NO</th>
                                 <th scope="col" class="px-3 py-3 text-center">NIM</th>
                                 <th scope="col" class="px-6 py-3">Nama Lengkap</th>
-                                <th scope="col" class="px-3 py-3 text-center">Tanggal Daftar</th>
+                                <th scope="col" class="px-3 py-3 text-center">Tanggal Validasi</th>
                                 <th scope="col" class="px-6 py-3"><span class="sr-only">Input Jadwal Sidang</span></th>
                             </tr>
                         </thead>
@@ -50,7 +50,9 @@
                                     </th>
                                     <td class="px-3 py-4 text-center">{{ $data->nim_nip }}</td>
                                     <td class="px-6 py-4">{{ $data->name }}</td>
-                                    <td class="px-3 py-4 text-center">{{ \Carbon\Carbon::parse($data->tanggal_daftar)->format('d/m/Y') }}</td>
+                                    <td class="px-3 py-4 text-center">
+                                        {{ \Carbon\Carbon::parse($data->created_at)->format('d/m/Y') }}
+                                    </td>
                                     <td class="px-6 py-4 text-right">
                                         <a href="{{ url('/koor-prodi/jadwal-sidang-mahasiswa/input-jadwal-sidang-mahasiswa/' . $data->id) }}" 
                                         class="font-medium text-blue-600 dark:text-blue-500 hover:underline">

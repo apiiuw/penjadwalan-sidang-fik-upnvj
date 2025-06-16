@@ -13,12 +13,12 @@
       <!-- Dropdown profil menu -->
       <div class="z-50 hidden list-none bg-white divide-y divide-gray-100 rounded-lg shadow-sm" id="user-dropdown">
         <div class="px-4 py-3">
-          @auth
-            <span class="block text-sm text-gray-900">{{ Auth::user()->name }}</span>
-            <span class="block text-sm text-gray-900">{{ Auth::user()->nim_nip }}</span>
-            <span class="block text-sm text-gray-900">{{ Auth::user()->program_studi }}</span>
-            <span class="block text-sm text-gray-600 truncate">{{ Auth::user()->email }}</span>
-            <span class="block text-sm text-orange-600">{{ Auth::user()->role }}</span>
+            @auth
+              <span class="block text-sm text-gray-900">{{ Auth::user()->name }}</span>
+              <span class="block text-sm text-gray-900">{{ Auth::user()->nim_nip }}</span>
+              <span class="block text-sm text-gray-900">{{ Auth::user()->program_studi }}</span>
+              <span class="block text-sm text-gray-600 truncate">{{ Auth::user()->email }}</span>
+              <span class="block text-sm text-orange-600">{{ Auth::user()->role }}</span>
           @endauth
         </div>
         <ul class="py-2" aria-labelledby="user-menu-button">
@@ -40,7 +40,7 @@
   <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
     <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
       <li>
-        <a href="/admin" class="block text-lg py-2 px-3 text-white rounded-sm hover:bg-black md:hover:bg-transparent md:hover:text-gray-300 md:p-0">Home</a>
+        <a href="/koor-prodi" class="block text-lg py-2 px-3 text-white rounded-sm hover:bg-black md:hover:bg-transparent md:hover:text-gray-300 md:p-0">Home</a>
       </li>
       <li>
         <button href="#" class="block text-lg py-2 px-3 text-white rounded-sm hover:bg-black md:hover:bg-transparent md:hover:text-gray-300 md:p-0" type="button" id="more-menu-button" aria-expanded="false" data-dropdown-toggle="more-dropdown" data-dropdown-placement="bottom">
