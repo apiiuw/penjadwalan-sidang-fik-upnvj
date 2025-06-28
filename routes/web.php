@@ -134,10 +134,8 @@ Route::middleware('auth')->group(function () {
 
     });
 
-Route::get('/debug-user', function () {
-    return auth()->user();
-});
-
-
+    Route::get('/debug-user', function () {
+        return auth()->user();
+    });
 
 });
