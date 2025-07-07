@@ -17,12 +17,12 @@
             </a>
 
             {{-- Card 3 --}}
-            <a href="/admin/informasi-sidang" class=" w-96 bg-gradient-to-b from-black/90 to-blue-500 border-blue-700 rounded-lg shadow-sm transition duration-300 ease-in-out hover:scale-105">
+            {{-- <a href="/admin/informasi-sidang" class=" w-96 bg-gradient-to-b from-black/90 to-blue-500 border-blue-700 rounded-lg shadow-sm transition duration-300 ease-in-out hover:scale-105">
                 <img class="rounded-t-lg" src="{{ asset('img/user/card-1-syarat-dan-ketentuan-sidang.png') }}" alt="" />
                 <div class="p-5">
                     <h5 class="text-xl text-center font-bold tracking-tight text-white">Informasi Sidang</h5>
                 </div>
-            </a>
+            </a> --}}
         </div>
     </div>
 

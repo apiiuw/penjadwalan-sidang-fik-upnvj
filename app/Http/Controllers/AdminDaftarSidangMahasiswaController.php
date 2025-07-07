@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\PendaftaranSidangMahasiswa;
 use App\Models\JadwalSidangMahasiswa;
+use Illuminate\Support\Facades\DB;
 
 class AdminDaftarSidangMahasiswaController extends Controller
 {
@@ -57,5 +58,24 @@ class AdminDaftarSidangMahasiswaController extends Controller
 
         return redirect()->back()->with('success', 'Data berhasil dikirim ke Koordinator Prodi.');
     }
+
+    public function updateStatus(Request $request)
+    {
+        $validated = $request->validate([
+            'nim_nip' => 'required|string',
+            'field' => 'required|string',
+            'status' => 'required|in:Ditolak,Diterima',
+        ]);
+
+        // Update status validasi
+        DB::table('pendaftaran_sidang_mahasiswa')
+            ->where('nim_nip', $request->nim_nip)
+            ->update([
+                'v_' . $request->field => $request->status
+            ]);
+
+        return back()->with('success', 'Status berhasil diperbarui');
+    }
+
 
 }

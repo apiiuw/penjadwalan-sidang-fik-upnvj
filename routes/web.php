@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UbahInformasiSidangController;
 use App\Http\Controllers\MahasiswaPendaftaranSidangController;
+use App\Http\Controllers\MahasiswaInformasiSidangController;
 use App\Http\Controllers\AdminDaftarSidangMahasiswaController;
 use App\Http\Controllers\AdminHasilNilaiSidangController;
 use App\Http\Controllers\KoorProdiJadwalSidangMahasiswaController;
@@ -38,15 +39,15 @@ Route::middleware('auth')->group(function () {
         Route::get('/ketentuan-dan-syarat-sidang', function () {
             return view('user.pages.layanan.ketentuan-dan-syarat');
         });
-        Route::get('/informasi-sidang', function () {
-            return view('user.pages.layanan.informasi-sidang');
-        });
+
+        Route::get('/informasi-sidang', [MahasiswaInformasiSidangController::class, 'index']);
+
         Route::get('/alur-pengajuan-judul-sidang', function () {
             return view('user.pages.layanan.alur-pengajuan-judul-sidang');
         });
-        Route::get('/pendaftaran-sidang', function () {
-            return view('user.pages.layanan.pendaftaran-sidang');
-        });
+
+        Route::get('/pendaftaran-sidang', [MahasiswaPendaftaranSidangController::class, 'show']);
+
         Route::post('/pendaftaran-sidang', [MahasiswaPendaftaranSidangController::class, 'store'])->name('pendaftaran-sidang.store');
 
         Route::get('/status-dan-hasil-pendaftaran', function () {
@@ -64,6 +65,7 @@ Route::middleware('auth')->group(function () {
         });
         Route::get('/admin/daftar-data-dokumen-mahasiswa', [AdminDaftarSidangMahasiswaController::class, 'index'])->name('admin.daftar-sidang');
         Route::get('/admin/daftar-data-dokumen-mahasiswa/{id}', [AdminDaftarSidangMahasiswaController::class, 'show'])->name('admin.detail-berkas-mahasiswa');
+        Route::post('/admin/daftar-data-dokumen-mahasiswa/update-status', [AdminDaftarSidangMahasiswaController::class, 'updateStatus'])->name('admin.updateStatus');
         Route::post('/admin/daftar-data-dokumen-mahasiswa/{id}/kirim-ke-koor', [AdminDaftarSidangMahasiswaController::class, 'store'])->name('kirim.ke.koor');
 
         // Route::get('/admin/hasil-dan-nilai-sidang-mahasiswa', [AdminHasilNilaiSidangController::class, 'index'])->name('admin.hasil-nilai-sidang');
